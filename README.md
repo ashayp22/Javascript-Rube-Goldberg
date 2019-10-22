@@ -1,2 +1,3 @@
 # Javascript-Rube-Goldberg
-code go here
+
+please put code in directory with name of what part it is
