@@ -16,7 +16,8 @@ window.addEventListener('load', function() {
         height: 200
 
     });
-    translate(0,0,1); // x value translates x, y value translates y and z value scales all bodies by that value
+
+    translate(300,500,.5); // x value translates x, y value translates y and z value scales all bodies by that value
     function translate(x, y, z) {
 
         var rampA = Bodies.rectangle((0+x)*z, (70+y)*z, 1000*z, 10*z, {   isStatic: true, angle: Math.PI * 0.15 });    // top ramp
@@ -31,9 +32,10 @@ window.addEventListener('load', function() {
         var domino3  = Bodies.rectangle((50+x)*z, (420+y)*z, 15*z, 300*z);                                             //third domino
 
         World.add(engine.world, [ circle, ground,rampA,boxVert, rampB,circle2, ground2,domino1,domino2,domino3]);
+        var joeBodies = [circle,ground,rampA,boxVert,rampB,circle2,ground2,domino1,domino2,domino3];
     }
 
-
+    
 
 // create two boxes and a ground
 
