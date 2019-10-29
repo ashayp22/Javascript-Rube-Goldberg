@@ -26,7 +26,9 @@ var render = Render.create({
     }
 });
 
-var tommyHelp = 0.2;
+var nickP_pulleyArray = [];
+
+var tommyHelp = 1;
 
 changeLocation(0, 0);
 changeSize(tommyHelp,  tommyHelp);
@@ -120,6 +122,7 @@ function changeLocation(x , y){
     });
 
     World.add(engine.world, [pulleyCircle, constraint, rubesBalls, pulleyBar1, consBarPulley, rampDown_part1, secondBall, rampDown_part2]);
+    nickP_pulleyArray.push(pulleyCircle, rubesBalls, pulleyBar1, rampDown_part1, rampDown_part2, secondBall);
 }
 
 function changeSize(scaleX, scaleY) {
