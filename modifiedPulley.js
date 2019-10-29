@@ -1,3 +1,4 @@
+
 var canvas = document.getElementById("world");
 
 // module aliases
@@ -25,8 +26,10 @@ var render = Render.create({
     }
 });
 
+var tommyHelp = 0.2;
+
 changeLocation(0, 0);
-changeSize(1,  1);
+changeSize(tommyHelp,  tommyHelp);
 
 var pulleyCircle,
     rubesBalls,
@@ -36,7 +39,7 @@ var pulleyCircle,
     rampDown_part2;
 
 function changeLocation(x , y){
-    pulleyCircle = Bodies.circle(300 + x, 300 + y, 60, {
+    pulleyCircle = Bodies.circle((tommyHelp * 300) + x, (tommyHelp * 300) + y, 60, {
         collisionFilter: {
             group: group
         },
@@ -48,7 +51,7 @@ function changeLocation(x , y){
         }
     });
 
-    rubesBalls = Bodies.circle(190 + x, 200 + y, 20, {
+    rubesBalls = Bodies.circle((tommyHelp * 190) + x, (tommyHelp * 200) + y, 20, {
         isStatic: false,
         render: {
             fillStyle: '#000000',
@@ -57,7 +60,7 @@ function changeLocation(x , y){
         }
     });
 
-    pulleyBar1 = Bodies.rectangle(300 + x, 300 + y, 300, 10, {
+    pulleyBar1 = Bodies.rectangle((tommyHelp * 300) + x, (tommyHelp * 300) + y, 300, 10, {
         frictionAir: 0.0001,
         collisionFilter: {
             group: group
@@ -70,7 +73,7 @@ function changeLocation(x , y){
         }
     });
 
-    rampDown_part1 = Bodies.rectangle(450 + x, 250 + y, 10, 10, {
+    rampDown_part1 = Bodies.rectangle((tommyHelp * 450) + x, (tommyHelp * 250) + y, 10, 10, {
         isStatic: true,
         collisionFilter: {
             group: group
@@ -82,7 +85,7 @@ function changeLocation(x , y){
         }
     });
 
-    secondBall = Bodies.circle(447 + x, 200 + y, 20, {
+    secondBall = Bodies.circle((tommyHelp * 447) + x, (tommyHelp * 200) + y, 20, {
         isStatic: false,
         render: {
             fillStyle: '#000000',
@@ -91,7 +94,7 @@ function changeLocation(x , y){
         }
     });
 
-    rampDown_part2 = Bodies.rectangle(490 + x, 285 + y, 100, 10, {
+    rampDown_part2 = Bodies.rectangle((tommyHelp * 490) + x, (tommyHelp * 285) + y, 100, 10, {
         isStatic: true,
         render: {
             fillStyle: '#000000',
@@ -126,6 +129,8 @@ function changeSize(scaleX, scaleY) {
     Body.scale(rampDown_part1, scaleX, scaleY);
     Body.scale(secondBall, scaleX, scaleY);
     Body.scale(rampDown_part2, scaleX, scaleY);
+
+
 }
 
 var mouseConstraint = Matter.MouseConstraint.create(engine, {
