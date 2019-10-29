@@ -27,11 +27,13 @@ var render = Render.create({
 
 var secondBall, trianglePedestal, catapultBoard, constraint1, holdCatapult, holdingBorder, firstBall;
 
+var tommyHelp = 0.2; //change this to scale
+
 changeLocation(0, 0);
-changeSize(1, 1);
+changeSize(tommyHelp, tommyHelp);
 
 function changeLocation(x, y){
-    firstBall = Bodies.circle(300 + x, 350 + y, 25, {
+    firstBall = Bodies.circle((tommyHelp * 300) + x, (tommyHelp * 350) + y, 25, {
         isStatic: false,
         density: 0.5,
         frictionAir: 0.001,
@@ -43,7 +45,7 @@ function changeLocation(x, y){
         }
     });
 
-    secondBall = Bodies.circle(450 + x, 460 + y, 25, {
+    secondBall = Bodies.circle((tommyHelp * 450) + x, (tommyHelp * 460) + y, 25, {
         isStatic: false,
         density: 0.005,
         frictionAir: 0.001,
@@ -55,7 +57,7 @@ function changeLocation(x, y){
         }
     });
 
-    trianglePedestal = Bodies.polygon(350 + x, 550 + y, 3, 40, {
+    trianglePedestal = Bodies.polygon((tommyHelp * 350) + x, (tommyHelp * 550) + y, 3, 40, {
         isStatic: true,
         collisionFilter: {
             group: group
@@ -68,7 +70,7 @@ function changeLocation(x, y){
     });
     Matter.Body.rotate(trianglePedestal, Math.PI/2);
 
-    holdCatapult = Bodies.rectangle(450 + x, 543 + y, 40, 40, {
+    holdCatapult = Bodies.rectangle((tommyHelp * 450) + x, (tommyHelp * 543) + y, 40, 40, {
         isStatic: true,
         render: {
             fillStyle: '#000000',
@@ -77,7 +79,7 @@ function changeLocation(x, y){
         }
     } );
 
-    holdingBorder = Bodies.rectangle(495 + x, 475 + y, 10, 50, {
+    holdingBorder = Bodies.rectangle((tommyHelp * 495) + x, (tommyHelp * 475) + y, 10, 50, {
         isStatic: false,
         render: {
             fillStyle: '#000000',
@@ -86,7 +88,7 @@ function changeLocation(x, y){
         }
     });
 
-    catapultBoard = Bodies.rectangle(350 + x, 510 + y, 300, 25, {
+    catapultBoard = Bodies.rectangle((tommyHelp * 350) + x, (tommyHelp * 510) + y, 300, 25, {
         isStatic: false,
         collisionFilter: {
             group: group
