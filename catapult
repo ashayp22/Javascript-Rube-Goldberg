@@ -27,13 +27,13 @@ var render = Render.create({
 
 var secondBall, trianglePedestal, catapultBoard, constraint1, holdCatapult, holdingBorder, firstBall;
 
-var 1tommyHelp = 0.2; //change this to scale
+var NicktommyHelp = 1; //change this to scale
 
 changeLocation(0, 0);
-changeSize(1tommyHelp, 1tommyHelp);
+changeSize(NicktommyHelp, NicktommyHelp);
 
 function changeLocation(x, y){
-    firstBall = Bodies.circle((1tommyHelp * 300) + x, (1tommyHelp * 350) + y, 25, {
+    firstBall = Bodies.circle((NicktommyHelp * 200) + x, (NicktommyHelp * 350) + y, 25, {
         isStatic: false,
         density: 0.5,
         frictionAir: 0.001,
@@ -45,7 +45,7 @@ function changeLocation(x, y){
         }
     });
 
-    secondBall = Bodies.circle((1tommyHelp * 450) + x, (1tommyHelp * 460) + y, 25, {
+    secondBall = Bodies.circle((NicktommyHelp * 450) + x, (NicktommyHelp * 460) + y, 25, {
         isStatic: false,
         density: 0.005,
         frictionAir: 0.001,
@@ -57,7 +57,7 @@ function changeLocation(x, y){
         }
     });
 
-    trianglePedestal = Bodies.polygon((1tommyHelp * 350) + x, (1tommyHelp * 550) + y, 3, 40, {
+    trianglePedestal = Bodies.polygon((NicktommyHelp * 350) + x, (NicktommyHelp * 550) + y, 3, 40, {
         isStatic: true,
         collisionFilter: {
             group: group
@@ -70,7 +70,7 @@ function changeLocation(x, y){
     });
     Matter.Body.rotate(trianglePedestal, Math.PI/2);
 
-    holdCatapult = Bodies.rectangle((1tommyHelp * 450) + x, (1tommyHelp * 543) + y, 40, 40, {
+    holdCatapult = Bodies.rectangle((NicktommyHelp * 450) + x, (NicktommyHelp * 543) + y, 40, 40, {
         isStatic: true,
         render: {
             fillStyle: '#000000',
@@ -79,7 +79,7 @@ function changeLocation(x, y){
         }
     } );
 
-    holdingBorder = Bodies.rectangle((1tommyHelp * 495) + x, (1tommyHelp * 475) + y, 10, 50, {
+    holdingBorder = Bodies.rectangle((NicktommyHelp * 495) + x, (NicktommyHelp * 475) + y, 10, 50, {
         isStatic: false,
         render: {
             fillStyle: '#000000',
@@ -88,7 +88,7 @@ function changeLocation(x, y){
         }
     });
 
-    catapultBoard = Bodies.rectangle((1tommyHelp * 350) + x, (1tommyHelp * 510) + y, 300, 25, {
+    catapultBoard = Bodies.rectangle((NicktommyHelp * 350) + x, (NicktommyHelp * 510) + y, 300, 25, {
         isStatic: false,
         collisionFilter: {
             group: group
