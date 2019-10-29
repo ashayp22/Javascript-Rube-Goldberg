@@ -27,15 +27,17 @@ var render = Render.create({
 
 var secondBall, trianglePedestal, catapultBoard, constraint1, holdCatapult, holdingBorder, firstBall;
 
+var nickP_catapultArray = [];
+
 var NicktommyHelp = 1; //change this to scale
 
 changeLocation(0, 0);
 changeSize(NicktommyHelp, NicktommyHelp);
 
 function changeLocation(x, y){
-    firstBall = Bodies.circle((NicktommyHelp * 200) + x, (NicktommyHelp * 350) + y, 25, {
+    firstBall = Bodies.circle((NicktommyHelp * 250) + x, (NicktommyHelp * 350) + y, 25, {
         isStatic: false,
-        density: 0.5,
+        density: 1,
         frictionAir: 0.001,
         restitution: 0,
         render: {
@@ -107,6 +109,7 @@ function changeLocation(x, y){
         stiffness: 1,
     });
     World.add(engine.world, [secondBall, trianglePedestal, catapultBoard, constraint1, holdCatapult, firstBall]);
+    nickP_catapultArray.push(secondBall, trianglePedestal, catapultBoard, holdCatapult, firstBall);
 }
 
 function changeSize(scaleX, scaleY) {
