@@ -1,0 +1,77 @@
+
+window.addEventListener('load', function() {
+// module aliases
+    var Engine = Matter.Engine,
+        Render = Matter.Render,
+        World = Matter.World,
+        Bodies = Matter.Bodies;
+        Constraint = Matter.Constraint,
+        Vector = Matter.Vector,
+        Body = Matter.Body;
+
+// create an engine
+    var engine = Engine.create();
+
+// create a renderer
+    var canvas = document.getElementById('canvas');
+    var render = Render.create({
+        element: document.body,
+        engine: engine,
+        canvas: canvas,
+        height: 200,
+        width: 200
+
+
+
+    });
+
+
+    var TommyF_Array = [];
+    translate(0,0,.5); // x value translates x, y value translates y and z value scales all bodies by that value
+    function translate(x, y, z) {
+        var Tommy_Wall_1 = Bodies.rectangle((200+x)*z, (450+175+x)*z, 400*z, 20*z , {  friction:0, isStatic: true, angle: .3 });
+        var Tommy_Wall_2 = Bodies.rectangle((450-40+x)*z, (450-205+y)*z, 200*z, 20*z , {  friction:0, isStatic: true, angle: .6 });
+        var Tommy_Wall_3 = Bodies.rectangle((145+450+x)*z, (450-120)*z, 190*z, 20*z , {  friction:0, isStatic: true, angle: .2 });
+        var Tommy_Wall_4 = Bodies.rectangle((220+450+x)*z, (450+80)*z, 200*z, 20*z , {  friction:0, isStatic: true, angle: .2 });
+        var Tommy_Wall_5 = Bodies.rectangle((50+450+x)*z, (450+250)*z, 200*z, 20*z , {  friction:0, isStatic: true, angle: 0 });
+        var Tommy_Wall_6 = Bodies.rectangle((30+450+x)*z, (450+50)*z, 20*z, 300*z , {  friction:0, isStatic: true, angle: 0 });
+        var Tommy_Wall_7 = Bodies.rectangle((70+450+x)*z, (450+50)*z, 20*z, 300*z , { friction:0,  isStatic: true, angle: 0 });
+        var Tommy_Wall_8 = Bodies.rectangle((180+450+x)*z, (450+250)*z, 20*z, 100*z , { friction:0,  isStatic: true, angle: 0 });
+        var Tommy_Wall_9 = Bodies.rectangle((210+450+x)*z, (450-40)*z, 50*z, 20*z , {  friction:0, isStatic: true, angle: 0 });
+
+        var Tommy_movable_Wall_1 = Bodies.rectangle((50+450+x)*z, (450+225)*z, 20*z, 50*z , {  friction:0,  isStatic: false, angle: 0 });
+        var Tommy_movable_Wall_2 = Bodies.rectangle((50+450+x)*z, (450)*z, 20*z, 400*z , {  friction:0, isStatic: false, angle: 0 });
+
+        var Tommy_Ball_1 = Bodies.circle((30+450+x)*z, (-250+450+y)*z, 5*z, { friction: 0, density: 1 });
+        var Tommy_Ball_2 = Bodies.circle((210+450+x)*z, (-50+450+y)*z, 20*z, { friction: 0, density: 1 });
+        var Tommy_Ball_3 = Bodies.circle((-250+450+x)*z, (-50+450+y)*z, 5*z, { friction: 0, density: 1 });
+
+        var Tommy_Constraints_body1 = Bodies.rectangle((450+240+x)*z, (450-100+y)*z, 20*z, 100*z , {  friction:0, restitution: 0.1, isStatic: false, angle: 0 });
+
+         var Tommy_Constraint_1 = Constraint.create({
+             bodyA: Tommy_Constraints_body1,
+             pointB: Vector.clone(Tommy_Constraints_body1.position),
+             length: 0,
+             stiffness: 0
+         });
+
+        World.add(engine.world, [ Tommy_Wall_1, Tommy_Wall_2, Tommy_Wall_3, Tommy_Wall_4, Tommy_Wall_5, Tommy_Wall_6, Tommy_Wall_7, Tommy_Wall_8, Tommy_Wall_9,
+                                  Tommy_movable_Wall_1, Tommy_movable_Wall_2, Tommy_Ball_1, Tommy_Ball_2, Tommy_Ball_3,  Tommy_Constraints_body1
+                                  , Tommy_Constraint_1]);
+
+        TommyF_Array. push( Tommy_Wall_1, Tommy_Wall_2, Tommy_Wall_3, Tommy_Wall_4, Tommy_Wall_5, Tommy_Wall_6, Tommy_Wall_7, Tommy_Wall_8, Tommy_Wall_9,
+            Tommy_movable_Wall_1, Tommy_movable_Wall_2, Tommy_Ball_1, Tommy_Ball_2, Tommy_Ball_3,  Tommy_Constraints_body1
+            , Tommy_Constraint_1);
+    }
+
+
+
+
+
+// run the engine
+    Engine.run(engine);
+
+// run the renderer
+    Render.run(render);
+
+});
