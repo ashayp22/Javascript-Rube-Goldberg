@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Rube Goldberg</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.10.0/matter.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=McLaren&display=swap" rel="stylesheet">
+    <link rel = "stylesheet"
+          type = "text/css"
+          href = "style.css" />
+</head>
+</head>
+<body>
+
+<h1>Interactive Rube Goldberg<br>"Basketball Shot"</h1>
+
+
+<div class = "start" id = "start1" onclick = "loadCompleted()"><p>Completed</p></div>
+<div class = "start" id = "start2" onclick = "loadInteractive()"><p>Interactive</p></div>
+
+<div id = "goldberg">
+    <canvas id="world"></canvas><br>
+    <div id = "rest">
+    <p id = "info"></p><br>
+    <input type = "button" class = "button" id = "releaseBall" value = "Start" onclick = "releaseBall()"><br><br>
+    <input type = "button" class = "button" id = "reset" value = "Reset" onclick = "reset()"><br><br>
+    <input type = "button" class = "button" id = "hint" value = "Hint" onclick = "showHint()"><br>
+    <p id = "hintText"></p><br>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" onclick = "closeModal()">&times;</span>
+            <p id = "modalp">YOU MADE THE SHOT!</p>
+            <img src="resources/meme.jpg" alt="meme" width="520px" height="520px">
+            <h4>click the x to go again</h4>
+
+        </div>
+
+    </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
